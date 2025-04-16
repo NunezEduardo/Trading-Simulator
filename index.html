@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">TS</div>
+            <h1>Trading Simulator</h1>
+            <h3>Desarrollado por Eduardo Núñez</h3>
+            <div class="user-info">
+                <span class="balance">Balance Total: $<span id="totalBalance">100000.00</span></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="dashboard">
+                <div class="chart-section">
+                    <div class="chart-controls">
+                        <select id="chartType">
+                            <option value="line">Gráfico de Líneas</option>
+                        </select>
+                        <div class="indicators">
+                            <label><input type="checkbox" id="showRSI"> RSI</label>
+                            <label><input type="checkbox" id="showMACD"> MACD</label>
+                            <label><input type="checkbox" id="showMA"> Media Móvil</label>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="tradingChart"></canvas>
+                    </div>
+                    <div class="volume-container">
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+                <div class="trading-panel">
+                    <div class="assets-list">
+                        <h2>Activos Disponibles</h2>
+                        <div id="assetsList"></div>
+                    </div>
+                    <div class="trading-form">
+                        <h2>Nueva Operación</h2>
+                        <select id="assetSelect">
+                            <option value="">Seleccionar Activo</option>
+                        </select>
+                        <input type="number" id="amount" placeholder="Cantidad">
+                        <div class="action-buttons">
+                            <button onclick="buy()" class="buy-btn">Comprar</button>
+                            <button onclick="sell()" class="sell-btn">Vender</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio">
+                <h2>Mi Portafolio</h2>
+                <div id="portfolioList"></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
